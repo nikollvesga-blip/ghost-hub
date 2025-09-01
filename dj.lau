@@ -1,0 +1,36 @@
+-- ===== DJ PHONK SCRIPT PARA KRNL =====
+
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+local rootPart = character:WaitForChild("HumanoidRootPart")
+
+-- ==== Skin personalizada ====
+local djShirtId = 123456789 -- <- Pon aquí tu ID de la camisa/skin
+local shirt = Instance.new("Shirt")
+shirt.ShirtTemplate = "rbxassetid://"..djShirtId
+shirt.Parent = character
+
+-- ==== Música Phonk ====
+local phonk = Instance.new("Sound")
+phonk.SoundId = "rbxassetid://TU_AUDIO_ID" -- <- Pon aquí tu ID de música
+phonk.Volume = 1
+phonk.Looped = true
+phonk.Parent = rootPart
+phonk:Play()
+
+-- ==== Animación DJ ====
+local djAnim = Instance.new("Animation")
+djAnim.AnimationId = "rbxassetid://ANIMACION_DJ_ID" -- <- Pon tu animación
+local animTrack = humanoid:LoadAnimation(djAnim)
+animTrack:Play()
+
+-- ==== Efectos opcionales ====
+-- Puedes agregar luces o partículas para que se vea más épico
+local light = Instance.new("PointLight")
+light.Color = Color3.fromRGB(255, 0, 255)
+light.Range = 10
+light.Brightness = 2
+light.Parent = rootPart
+
+print("🎧 DJ Phonk activado! Disfruta la música y tu skin 😎")
