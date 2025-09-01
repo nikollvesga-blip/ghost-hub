@@ -1,0 +1,38 @@
+-- ===== DJ ÉPICO CON ALTAVOCES PHONK PARA KRNL =====
+
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local rootPart = character:WaitForChild("HumanoidRootPart")
+local humanoid = character:WaitForChild("Humanoid")
+
+-- ==== Animación DJ (brazos alzados, moviéndose) ====
+local djAnim = Instance.new("Animation")
+djAnim.AnimationId = "rbxassetid://ANIMACION_DJ_ID" -- <- Pon tu animación de DJ
+local animTrack = humanoid:LoadAnimation(djAnim)
+animTrack:Play()
+
+-- ==== Crear altavoces gigantes ====
+local function crearAltavoz(pos)
+    local speaker = Instance.new("Part")
+    speaker.Size = Vector3.new(6,6,3)
+    speaker.Position = pos
+    speaker.Anchored = true
+    speaker.BrickColor = BrickColor.new("Really black")
+    speaker.Parent = workspace
+
+    -- Luz en altavoz
+    local light = Instance.new("PointLight")
+    light.Color = Color3.fromRGB(255, 0, 255)
+    light.Brightness = 3
+    light.Range = 15
+    light.Parent = speaker
+
+    return speaker
+end
+
+local altavoz1 = crearAltavoz(rootPart.Position + Vector3.new(10,0,0))
+local altavoz2 = crearAltavoz(rootPart.Position + Vector3.new(-10,0,0))
+
+-- ==== Música Phonk ====
+local phonk = Instance.new("Sound")
+phonk.SoundId = "rbxasset
