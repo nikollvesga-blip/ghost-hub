@@ -1,0 +1,27 @@
+-- Servicios
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local player = Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+local root = character:WaitForChild("HumanoidRootPart")
+
+-- 1️⃣ Traje estilo C00lkidd (BodyColors + Shirt y Pants públicos)
+local function aplicarTrajeCoolkidd()
+    -- BodyColors
+    local bodyColors = Instance.new("BodyColors")
+    bodyColors.HeadColor = BrickColor.new("Bright yellow")
+    bodyColors.TorsoColor = BrickColor.new("Bright yellow")
+    bodyColors.LeftArmColor = BrickColor.new("Bright yellow")
+    bodyColors.RightArmColor = BrickColor.new("Bright yellow")
+    bodyColors.LeftLegColor = BrickColor.new("Bright blue")
+    bodyColors.RightLegColor = BrickColor.new("Bright blue")
+    bodyColors.Parent = character
+
+    -- Shirt y Pants públicos estilo C00lkidd
+    local shirt = Instance.new("Shirt")
+    shirt.ShirtTemplate = "rbxassetid://1234567890" -- ID público similar a C00lkidd
+    shirt.Parent = character
+
+    local pants = Instance.new("Pants")
+    pants.PantsTemplate = "
